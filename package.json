@@ -4,14 +4,14 @@
   "description": "FIFA World Cup 2018 Lookup",
   "author": "Sarah Dayan <dayan.sarah@gmail.com>",
   "scripts": {
-    "dev":
-      "webpack-dev-server --inline --progress --config --hot build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config --hot build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "deploy": "npm run build; push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "dayjs": "^1.6.5",
@@ -62,6 +62,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
+    "push-dir": "^0.4.1",
     "rimraf": "^2.6.0",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
@@ -81,5 +82,9 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
