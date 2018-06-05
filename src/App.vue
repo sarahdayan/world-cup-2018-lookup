@@ -164,6 +164,8 @@ a {
   font-size: 30px;
   color: #3a416f;
   outline: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 @media (max-width: 700px) {
   .hero-input .ais-input {
