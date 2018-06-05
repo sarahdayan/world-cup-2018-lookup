@@ -49,7 +49,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/world-cup-2018-lookup',
+    assetsPublicPath: '/world-cup-2018-lookup/',
 
     /**
      * Source Maps
