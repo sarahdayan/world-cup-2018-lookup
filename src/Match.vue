@@ -1,5 +1,5 @@
 <template>
-<transition name="fade">
+  <transition name="fade">
     <div class="card">
       <div v-if="result.finished" class="card-banner">Finished</div>
       <span class="card-badge">
@@ -36,20 +36,21 @@
           </ul>
         </div>
         <div class="card-block" v-if="!result.finished">
-          <b-dropdown text="+ Add to calendar" dropup>
-            <b-dropdown-item v-bind:href="googleEvent" target="_blank">Google Calendar</b-dropdown-item>
-            <b-dropdown-item v-bind:href="icalEvent">iCal</b-dropdown-item>
-            <b-dropdown-item v-bind:href="outlookEvent">Outlook</b-dropdown-item>
-          </b-dropdown>
+          <p>
+            <a v-bind:href="googleEvent" target="_blank">Google Calendar</a><br>
+            <a v-bind:href="icalEvent">iCal</a><br>
+            <a v-bind:href="outlookEvent">Outlook</a>
+          </p>
         </div>
       </footer>
     </div>
-    </transition>
+  </transition>
 </template>
 
 <script>
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import * as calendarGenerators from './calendar-link-generators'
 
 dayjs.extend(relativeTime)
 
@@ -60,19 +61,10 @@ export default {
   data: function() {
     return {
       event: {
-        // Event title
         title: `${this.result.home_team} vs. ${this.result.away_team}`,
-
-        // Event start date
         start: new Date(this.result.datetime),
-
-        // Event duration (IN MINUTES)
         duration: 90,
-
-        // Event Address
         address: this.result.stadium,
-
-        // Event Description
         description: `FIFA World Cup 2018 ${this.result.home_team} vs. ${
           this.result.away_team
         } at ${this.result.stadium}`
@@ -86,20 +78,18 @@ export default {
   },
   computed: {
     googleEvent: function() {
-      return window.calendarGenerators.google(this.event)
+      return calendarGenerators.google(this.event)
     },
     icalEvent: function() {
-      return window.calendarGenerators.ical(this.event)
+      return calendarGenerators.ical(this.event)
     },
     outlookEvent: function() {
-      return window.calendarGenerators.outlook(this.event)
+      return calendarGenerators.outlook(this.event)
     }
   }
 }
 </script>
 
 <style>
-.card {
-  overflow: visible;
-}
+
 </style>

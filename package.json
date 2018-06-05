@@ -14,7 +14,6 @@
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.0-rc.11",
     "dayjs": "^1.6.5",
     "vue": "^2.5.2",
     "vue-instantsearch": "^1.7.0",
