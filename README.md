@@ -1,10 +1,10 @@
-# world-cup-2018
+# world-cup-2018-lookup
 
-> A Vue.js project
+> FIFA World Cup 2018 Lookup
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
