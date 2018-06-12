@@ -170,6 +170,7 @@ a {
 @media (max-width: 700px) {
   .hero-input .ais-input {
     min-width: 100%;
+    font-size: 20px;
   }
 }
 .hero-input .ais-clear {
