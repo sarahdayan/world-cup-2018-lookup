@@ -45,7 +45,7 @@
               <div class="card-block">
                 <svg class="card-icon" height="20" viewBox="0 0 18 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="m16 2h-1v-2h-2v2h-8v-2h-2v2h-1c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2zm0 16h-14v-11h14z"/><path d="m4 9h5v5h-5z"/></svg>
                 <span class="card-date">
-                  <ais-highlight :result="result" attribute-name="date"></ais-highlight>&nbsp;({{ getRelativeTime(result.datetime) }})
+                  {{ getFormattedTime(result.datetime) }}&nbsp;({{ getRelativeTime(result.datetime) }})
                 </span>
               </div>
               <div class="card-block">
@@ -80,8 +80,11 @@ dayjs.extend(relativeTime)
 export default {
   name: 'App',
   methods: {
-    getRelativeTime(date) {
-      return dayjs(date).fromNow()
+    getRelativeTime(time) {
+      return dayjs(time).fromNow()
+    },
+    getFormattedTime(time) {
+      return dayjs(time).format('dddd D MMMM H:mm')
     }
   }
 }

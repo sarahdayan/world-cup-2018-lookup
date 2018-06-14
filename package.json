@@ -4,7 +4,7 @@
   "description": "FIFA World Cup 2018 Lookup",
   "author": "Sarah Dayan <dayan.sarah@gmail.com>",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config --hot build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --hot",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
